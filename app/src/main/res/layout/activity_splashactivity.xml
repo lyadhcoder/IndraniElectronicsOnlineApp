@@ -9,28 +9,42 @@
     tools:context=".splashactivity">
 
     <ImageView
-    android:id="@+id/logo"
-    android:layout_width="163dp"
-    android:layout_height="183dp"
-    android:layout_centerInParent="true"
-    android:src="@drawable/profile" />
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_width="350dp"
-        android:layout_height="350dp"
-        android:indeterminateTint="#FF614D" />
+        android:src="@drawable/profile" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/cart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/welcome"
+        tools:visibility="visible" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logo"
+        android:layout_marginTop="-50dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_below="@id/progressBar"
-        android:layout_centerInParent="true"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/logo"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="-5dp"
+        android:gravity="center"
+        android:text="Indrani Electronics Online"
         android:textColor="#fff"
-        android:textSize="32dp"
-        android:text="Indrani Electronics Online" />
+        android:textSize="32dp" />
 
 </RelativeLayout>

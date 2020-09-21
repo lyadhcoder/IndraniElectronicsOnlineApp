@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mywebView = (WebView)findViewById(R.id.webview);
         WebSettings webSettings=mywebView.getSettings();
-        mywebView.loadUrl("https://indranielectronics.com");
+        mywebView.loadUrl("https://indranielectronics.com/");
         mywebView.setWebViewClient(new WebViewClient());
         webSettings.setJavaScriptEnabled(true);
     }
