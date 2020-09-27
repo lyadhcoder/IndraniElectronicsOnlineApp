@@ -2,36 +2,37 @@ package com.indrani.electronics;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Bitmap;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.webkit.WebSettings;
-import android.webkit.WebChromeClient;
 import android.webkit.WebViewClient;
 import android.webkit.WebView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity<url> extends AppCompatActivity {
     private WebView mywebView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mywebView = (WebView)findViewById(R.id.webview);
-        WebSettings webSettings=mywebView.getSettings();
-        mywebView.loadUrl("https://indranielectronics.com/");
-        mywebView.setWebViewClient(new WebViewClient());
+        mywebView = (WebView) findViewById(R.id.webview);
+        WebSettings webSettings = mywebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-    }
+        mywebView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                if (url.startsWith("http:") || url.startsWith("https:")) {
+                    return false;
+                }
 
-    public class myWebClinet extends WebViewClient{
-        @Override
-        public void onPageStarted (WebView view, String url, Bitmap favicon){
-            super.onPageStarted(view, url, favicon);
-        }
-        public  boolean shouldOverrideURLLoading(WebView view, String url){
-            view.loadUrl(url);
-            return true;
-        }
+                // Otherwise allow the OS to handle things like tel, mailto, etc.
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(intent);
+                return true;
+            }
+        });
+        mywebView.loadUrl("https://indranielectronics.com/");
     }
     @Override
     public void onBackPressed(){
@@ -41,5 +42,4 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
-
 }
