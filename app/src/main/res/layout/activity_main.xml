@@ -13,5 +13,30 @@
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/nonet"
+        android:background="#fff"
+        >
+
+        <ImageView
+            android:id="@+id/nonetimg"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/nonet" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/nonettext"
+            android:layout_below="@id/nonetimg"
+            android:text="Check Your Internet Connection and Try Again Later"
+            android:textColor="#000"
+            android:textAlignment="center"
+            android:textSize="25dp"
+            />
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
